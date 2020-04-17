@@ -42,7 +42,7 @@ class Instabot:
         self.profilelinks = [link for link in followingLink
                              if link not in followersLink]
         print("\t\tPeople who are not following me back !")
-        table = pd.DataFrame({"Num": "", "Names": notFollowingBack,
+        table = pd.DataFrame({"Names": notFollowingBack,
                               "Profile Links": self.profilelinks})
         print(table)
 
@@ -76,7 +76,7 @@ class Instabot:
         scrollbar = self.driver.find_element_by_xpath("/html/body/div[4]/div/div[2]")
         # Get scroll height
         last_height = self.driver.execute_script("return arguments[0].scrollHeight ", scrollbar)
-        # scroll the  list of follower or following amd get the names
+        # scroll the  list of follower or following and get the names
         while True:
             # Scroll down to bottom
             self.driver.execute_script("arguments[0].scrollTo(0, arguments[0].scrollHeight)", scrollbar);
