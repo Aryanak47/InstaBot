@@ -82,9 +82,10 @@ class Instabot:
             self.driver.execute_script("arguments[0].scrollTo(0, arguments[0].scrollHeight)", scrollbar);
             # Wait to load page
             time.sleep(2)
-            # Calculate new scroll height and compare with last scroll height
+             # Calculate new scroll height 
             new_height = self.driver.execute_script("return arguments[0].scrollHeight ", scrollbar);
             elements = self.driver.find_elements_by_class_name("FPmhX")
+             #  compare new height with last scroll height
             if new_height == last_height:
                 data = {"links": [e.get_attribute("href") for e in elements],
                         "name": [e.text for e in elements]}
